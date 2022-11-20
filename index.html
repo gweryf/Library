@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../library/images/newliblogo.png">
+</head>
+<body>
+    <nav>
+        <div>
+            <img class="logopic" src="../library/images/newliblogo.png" alt="picture of a book" srcset="">
+        </div>
+        <div class="navbut">
+            <div class="navbutton">About</div>
+            <div class="navbutton">Guide</div>
+            <div class="navbutton">Contact</div>
+        </div>
+    </nav>
+
+    <div class="canvas">
+        <div class="create">Create +</div>
+            <div class="popup">
+                <form id="form" action="/app.js">
+                    <h2>Add Book</h2>
+                    <p>Enter the name of the book:</p>
+                    <input type="text" id="bookname" name="bookname"><br>
+                    <p>Enter the name of the author:</p>
+                    <input type="text" id="author" name="author"><br>
+                    <p>Enter the number of pages:</p>
+                    <input type="number" id="pagenum"><br>
+                    <label for="read">Read:</label>
+                    <input type="checkbox" name="read" id="read">
+                    <button type="submit" class="popupsub">Submit</button>
+                </form>
+            </div>
+        <div class="books"></div>
+    </div>
+    <script src="app.js"></script>
+
+</body>
+</html>
