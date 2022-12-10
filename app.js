@@ -1,7 +1,15 @@
 
+//selecting the button to create directry entry of the book
 const createbutton = document.querySelector(".create")
+
+//selecting the popup form that will be used to make it visible/invisible
 const popup = document.querySelector('.popup')
+
+//selecting the submit button in the popup form that will push entries in the array
 const subpop = document.querySelector('.popupsub')
+
+//selecting the area where the carrds will b placed
+const canvas = document.querySelector('.books')
 
 createbutton.addEventListener('click',()=>{
     popup.classList.toggle('open-popup')
@@ -10,7 +18,9 @@ createbutton.addEventListener('click',()=>{
 subpop.addEventListener('click',()=>{
     popup.classList.toggle('open-popup')
     addBookToLibrary()
+    addCard()
 })
+
 
 let mylibrary = []
 
@@ -34,3 +44,26 @@ function addBookToLibrary () {
     form.reset()
 }
 
+function addCard(){
+    const card = document.createElement('div')
+    card.className = 'card'
+
+    card.innerHTML = `
+    <h3>${mylibrary[mylibrary.length-1].title}</h3>
+    <p>${mylibrary[mylibrary.length-1].author}</p>
+    <p>${mylibrary[mylibrary.length-1].pages} pg</p>
+    <button class='cardel'>Delete</button>
+    ` ;
+    canvas.appendChild(card)
+
+    const delbut = card.querySelector('.cardel')
+
+    delbut.addEventListener('click', ()=>{
+        delcard()
+    })
+}
+
+function delcard(){
+    mylibrary.pop()
+    canvas.removeChild(card)
+}
