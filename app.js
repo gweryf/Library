@@ -11,6 +11,9 @@ const subpop = document.querySelector('.popupsub')
 //selecting the area where the carrds will b placed
 const canvas = document.querySelector('.books')
 
+//this variable is used to generate a new id for each delte button in the card
+let idvar = 0
+
 createbutton.addEventListener('click',()=>{
     popup.classList.toggle('open-popup')
 })
@@ -52,18 +55,16 @@ function addCard(){
     <h3>${mylibrary[mylibrary.length-1].title}</h3>
     <p>${mylibrary[mylibrary.length-1].author}</p>
     <p>${mylibrary[mylibrary.length-1].pages} pg</p>
-    <button class='cardel'>Delete</button>
+    <button class='cardel' id='cardel-${idvar}'>Delete</button>
     ` ;
     canvas.appendChild(card)
 
-    const delbut = card.querySelector('.cardel')
+    const delbut = document.querySelector('#cardel-'+idvar)
 
-    delbut.addEventListener('click', ()=>{
-        delcard()
+    delbut.addEventListener('click', (e)=>{
+        console.log(e.target);
+        mylibrary.pop()
+        canvas.removeChild(card)
     })
-}
-
-function delcard(){
-    mylibrary.pop()
-    canvas.removeChild(card)
+    idvar++
 }
