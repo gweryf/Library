@@ -51,12 +51,28 @@ function addCard(){
     const card = document.createElement('div')
     card.className = 'card'
 
-    card.innerHTML = `
-    <h3>${mylibrary[mylibrary.length-1].title}</h3>
-    <p>${mylibrary[mylibrary.length-1].author}</p>
-    <p>${mylibrary[mylibrary.length-1].pages} pg</p>
-    <button class='cardel' id='cardel-${idvar}'>Delete</button>
-    ` ;
+    let readval = document.getElementById('read').value
+    console.log(readval);
+
+    if (readval == 'on') {
+        card.innerHTML = `
+        <h3>${mylibrary[mylibrary.length-1].title}</h3>
+        <p>${mylibrary[mylibrary.length-1].author}</p>
+        <p>${mylibrary[mylibrary.length-1].pages} pg</p>
+        <button class='readbut'>Not Read</button>
+        <button class='cardel' id='cardel-${idvar}'>Delete</button>
+        ` ;
+    }
+    else {
+        card.innerHTML = `
+        <h3>${mylibrary[mylibrary.length-1].title}</h3>
+        <p>${mylibrary[mylibrary.length-1].author}</p>
+        <p>${mylibrary[mylibrary.length-1].pages} pg</p>
+        <button class='readbut'>Read</button>
+        <button class='cardel' id='cardel-${idvar}'>Delete</button>
+        ` ;
+    }
+    
     canvas.appendChild(card)
 
     const delbut = document.querySelector('#cardel-'+idvar)
