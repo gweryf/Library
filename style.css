@@ -119,11 +119,27 @@ nav {
     width: 100%;
   }
 
-  .readbut {
-    width: 90px;
+  .notreadbut {
+    width: 120px;
     font-size: 19px;
     margin-bottom: 10px;
-    background: #072e8f;
+    background: #ee4848;
+    color: white;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+  }
+
+  .notreadbut:hover {
+    transform: scale(1.2);
+    transition-duration: 0.2s
+  }
+
+  .readbut {
+    width: 120px;
+    font-size: 19px;
+    margin-bottom: 10px;
+    background: #73f36a;
     color: white;
     border-radius: 5px;
     transition-duration: 0.2s;
