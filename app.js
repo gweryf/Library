@@ -13,6 +13,8 @@ const canvas = document.querySelector('.books')
 
 //this variable is used to generate a new id for each delte button in the card
 let idvar = 0
+let idread = 0
+let idunread = 0
 
 createbutton.addEventListener('click',()=>{
     popup.classList.toggle('open-popup')
@@ -57,7 +59,7 @@ function addCard(){
         <h3>${mylibrary[mylibrary.length-1].title}</h3>
         <p>${mylibrary[mylibrary.length-1].author}</p>
         <p>${mylibrary[mylibrary.length-1].pages} pg</p>
-        <button class='readbut'>Read</button>
+        <button class='readbut' id='readbut-${idvar}'>Read</button>
         <button class='cardel' id='cardel-${idvar}'>Delete</button>
         ` ;
     }
@@ -66,7 +68,7 @@ function addCard(){
         <h3>${mylibrary[mylibrary.length-1].title}</h3>
         <p>${mylibrary[mylibrary.length-1].author}</p>
         <p>${mylibrary[mylibrary.length-1].pages} pg</p>
-        <button class='readbut'>Not Read</button>
+        <button class='notreadbut' id='readbut-${idvar}'>Not Read</button>
         <button class='cardel' id='cardel-${idvar}'>Delete</button>
         ` ;
     }
@@ -81,5 +83,19 @@ function addCard(){
         mylibrary.pop()
         canvas.removeChild(card)
     })
+    const reading = document.getElementById('readbut-'+idvar)
+    reading.addEventListener('click',()=>{
+        if(reading.innerText=='Read'){
+            reading.classList.remove('readbut')
+            reading.classList.add('notreadbut')
+            reading.innerText = 'Not Read'
+        } else {
+            reading.classList.remove('notreadbut')
+            reading.classList.add('readbut')
+            reading.innerText = 'Read'
+        }
+    })
     idvar++
+
+    
 }
